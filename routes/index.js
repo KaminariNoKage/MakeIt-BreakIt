@@ -5,7 +5,7 @@
 
 var Models = require('../models/mibi_models.js')
 	, Member = Models[0]
-	, Group: Models[1];
+	, Group = Models[1];
 
 exports.index = function(req, res){
 	req.facebook.api('/me', function(err, data) {
