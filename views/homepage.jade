@@ -1,0 +1,34 @@
+extends layout
+
+block content
+   br 
+   br
+   br
+   img.displayed(src='challenge.png')
+   br
+   br
+   table.table.table-bordered.table-striped
+        tbody
+          tr
+        
+            th
+              p Create a group and invite your friends
+              br
+              h4 Think of a goal you want to reach, whether it be losing 30 pounds or learning French. Then, enter in how much money you want to bet. If you reach your goal by the end of your time frame, you get that money back and more! 
+              a.btn.btn-success.btn-large(href='#') Create Now!
+        
+            th
+              p Join a Group
+              br
+              h4 If you already have a group in mind, then click here! Join in on the bet with your friends and increase the Rewards pool. The more people who join in with a goal, the bigger your reward will be when you finish yours.
+              a.btn.btn-warning.btn-large(href='#', type='button') Join a Group!
+        
+            th 
+              p Search for Groups
+              br
+              h4 Just want to browse groups and see what people are up to? Search goals or habits you're interested in and support someone or a group! Supporting them allows you to follow up on how they're doing on a regular basis as well as letting them know that you're rooting for them.
+              .span2 
+               a.btn.btn-primary(href='#', type='submit') Search 
+              .span2
+               input.input-medium.search-query(type='text')
+
