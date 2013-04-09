@@ -46,7 +46,11 @@ function facebookGetUser() {
 }
 
 app.get('/', Facebook.loginRequired(), routes.index);
-//app.get('/users', user.list);
+app.get('/home', facebookGetUser(), user.home);
+app.get('/profile', facebookGetUser(), user.myprofile);
+//app.get('/make_newgroup', facebookGetUser(), user.makegroup);
+//app.get('/allgroups', facebookGetUser(), group.allgroups);
+//app.get('/allgroups/:groupid', facebookGetUser(), group.getgroup);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

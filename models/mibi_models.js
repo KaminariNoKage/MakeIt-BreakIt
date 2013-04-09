@@ -7,13 +7,17 @@ db.once('open', function callback () {});
 
 var memberSchema = mongoose.Schema({
 	name: String,
-	fb_id: String
+	fb_id: String,
+	habits: Array
 });
 
-var habitSchema = mongoose.Schema({
-	title: String,
-	Description: String
+var groupSchema = mongoose.Schema({
+	habit: String,
+	description: String,
+	deadline: String,
+	people: Number
 });
 
 var Member = mongoose.model('Member', memberSchema);
-module.exports = Member;
+var Group = mongoose.model('Group', groupSchema);
+module.exports = [Member, Group];

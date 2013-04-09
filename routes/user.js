@@ -3,6 +3,13 @@
  * GET users listing.
  */
 
-exports.list = function(req, res){
-  res.send("respond with a resource");
+exports.home = function(req, res){
+	req.facebook.api('/me', function(err, data) {
+		res.render('index', { title: 'Home Page!' , name: data.name});
+	});
+};
+
+exports.myprofile = function(req, res){
+	var userid = req.session.user;
+	
 };

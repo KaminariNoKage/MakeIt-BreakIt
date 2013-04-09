@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1= title
+	p Welcome #{name} to #{title}
+
+	div(value=friend_list)
+		each friend, i in friend_list
+			| #{friend.name}
