@@ -6,3 +6,40 @@ body {
 a {
   color: #00B7FF;
 }
+
+P { 
+	text-align: center; 
+	font-size:180%
+}
+
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+h4 {
+	margin-left: auto;
+    margin-right: auto;
+    width: 25em
+}
+
+a.btn.btn-warning.btn-large{
+    text-align:center;
+    left:36%;
+    position:relative
+}
+
+a.btn.btn-success.btn-large{
+    text-align:center;
+    left:36%;
+    position:relative
+}
+
+a.btn.btn-primary {
+	text-align:right;
+    left:70%;
+    position:relative;
+	margin: 0 auto
+
+}
