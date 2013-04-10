@@ -10,7 +10,7 @@ var Models = require('../models/mibi_models.js')
 exports.home = function(req, res){
 	var userid = req.session.user;
 	Member.find({fb_id: userid}).exec(function (err, docs){
-		res.render('homepage', { title: 'MakeIt-BreakIt' , name: docs[0].name});
+		res.render('homepage', { title: 'MakeIt-BreakIt' , user_id: userid});
 	});
 };
 
@@ -37,8 +37,6 @@ exports.newgroup = function(req, res){
  * Various POST functions for buttons
  */
 
-// Creates a new group
-
 //Adds a member to a group
 exports.join = function(req, res){
 	Member.find({fb_id: req.session.user}).exec(function (err, docs){
@@ -48,6 +46,7 @@ exports.join = function(req, res){
 		Group.search({_id: req.body.group_id}).exec(function (err, docs){
 			//Make sure member not in group already, or group part of member's list
 			//Add group to the member's list of joined groups.
+			//{group_list: group_id, bet: $$}
 			//Add the member to the groups current list of 
 		});
 	});

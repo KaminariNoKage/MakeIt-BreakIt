@@ -34,7 +34,7 @@ exports.index = function(req, res){
 				}
 				else{
 					//else redirect to the profile page
-					res.redirect('/myprofile');
+					res.redirect('/profile');
 				};
 			};
 

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	script(src='/scripts/clickables.js')
+	h1 #{name}
+
+	div(name='Search Bar')
+		.span2 
+		a.btn.btn-primary(type='button', id='search_group', class='#{user_id}') Search 
+		.span2
+		input.input-medium.search-query(type='text', id='search_words')
+
+	div(value=group_list)
+		each hab, i in group_list
+			div(class='#{hab._id}')
+				h2 {#hab.habit}
+				| {#hab.description}
