@@ -49,8 +49,8 @@ app.get('/', Facebook.loginRequired(), routes.index);
 app.get('/home', facebookGetUser(), user.home);
 app.get('/profile', facebookGetUser(), user.myprofile);
 //app.get('/newgroup', facebookGetUser(), user.newgroup);
-//app.get('/allgroups', facebookGetUser(), group.allgroups);
-//app.get('/allgroups/:habit', facebookGetUser(), group.getgroup);
+app.get('/allgroups', facebookGetUser(), group.allgroups);
+app.get('/allgroups/:habit', facebookGetUser(), group.getgroup);
 
 //app.post('/makegroup', group.make);
 //app.post('/joingroup', user.join);

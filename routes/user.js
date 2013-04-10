@@ -36,8 +36,12 @@ exports.join = function(req, res){
 			, groups = user.habits;
 		if (groups.length == 0){
 			groups.push('You are not signed up for any groups. Try joining one or making your own!');
-		};
-		res.render('profile', {title: 'MakeIt-BreakIt', name: name, habit_list: groups});
+		}
+		else{
+			Group.search({habit: req.body.habit}).exec({
+				res.render('profile', {title: 'MakeIt-BreakIt', name: name, habit_list: groups});
 
+			});
+		};
 	});
 };
