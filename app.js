@@ -49,7 +49,9 @@ function facebookGetUser() {
 app.get('/', Facebook.loginRequired(), routes.index);
 app.get('/home', facebookGetUser(), user.home);
 app.get('/profile', facebookGetUser(), user.myprofile);
-//app.get('/newgroup', facebookGetUser(), user.newgroup);
+app.get('/newgroup', facebookGetUser(), user.newgroup);
+//app.get('/record', facebookGetUser(), user.record);
+//app.get('/submit', facebookGetUser(), user.submit);
 app.get('/allgroups', facebookGetUser(), group.allgroups);
 app.get('/allgroups/:habit', facebookGetUser(), group.getgroup);
 

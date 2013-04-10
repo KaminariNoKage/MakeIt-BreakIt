@@ -10,12 +10,12 @@ var Models = require('../models/mibi_models.js')
 exports.home = function(req, res){
 	var userid = req.session.user;
 	Member.find({fb_id: userid}).exec(function (err, docs){
-		res.render('homepage', { title: 'Home Page!' , name: docs[0].name});
+		res.render('homepage', { title: 'MakeIt-BreakIt' , name: docs[0].name});
 	});
 };
 
 exports.myprofile = function(req, res){
-	Member.search({fb_id: req.session.user}).exec(function (err, docs){
+	Member.find({fb_id: req.session.user}).exec(function (err, docs){
 		var user = docs[0]
 			, name = user.name
 			, groups = user.habits;
@@ -27,21 +27,28 @@ exports.myprofile = function(req, res){
 	});
 };
 
+exports.newgroup = function(req, res){
+	var userid = req.session.user;
+	res.render('newgroup', {title: 'MakeIt-BreakIt', userid: userid});
+};
 
-//Various POST functions for buttons
+
+/*
+ * Various POST functions for buttons
+ */
+
+// Creates a new group
+
+//Adds a member to a group
 exports.join = function(req, res){
-	Member.search({fb_id: req.session.user}).exec(function (err, docs){
+	Member.find({fb_id: req.session.user}).exec(function (err, docs){
 		var user = docs[0]
 			, name = user.name
 			, groups = user.habits;
-		if (groups.length == 0){
-			groups.push('You are not signed up for any groups. Try joining one or making your own!');
-		}
-		else{
-			Group.search({habit: req.body.habit}).exec(function (err, docs){
-				res.render('profile', {title: 'MakeIt-BreakIt', name: name, habit_list: groups});
-
-			});
-		};
+		Group.search({_id: req.body.group_id}).exec(function (err, docs){
+			//Make sure member not in group already, or group part of member's list
+			//Add group to the member's list of joined groups.
+			//Add the member to the groups current list of 
+		});
 	});
 };

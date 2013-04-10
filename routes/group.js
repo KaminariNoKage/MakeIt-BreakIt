@@ -16,7 +16,7 @@ var Models = require('../models/mibi_models.js')
  exports.getgroup = function(req, res){
 	Group.find({'habit':req.params.name}).sort('deadline').exec(function (err, docs) {
 		if (err)
-		return console.log("error", cats);
+		return console.log("error", docs);
 		// send it back
 		res.render('group_pg', {title: docs[0].name});
 	});
