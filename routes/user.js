@@ -10,7 +10,7 @@ var Models = require('../models/mibi_models.js')
 exports.home = function(req, res){
 	var userid = req.session.user;
 	Member.find({fb_id: userid}).exec(function (err, docs){
-		res.render('home', { title: 'Home Page!' , name: docs[0].name});
+		res.render('homepage', { title: 'Home Page!' , name: docs[0].name});
 	});
 };
 
@@ -38,7 +38,7 @@ exports.join = function(req, res){
 			groups.push('You are not signed up for any groups. Try joining one or making your own!');
 		}
 		else{
-			Group.search({habit: req.body.habit}).exec({
+			Group.search({habit: req.body.habit}).exec(function (err, docs){
 				res.render('profile', {title: 'MakeIt-BreakIt', name: name, habit_list: groups});
 
 			});
