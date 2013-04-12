@@ -138,11 +138,12 @@ $(document).ready(function (){
         uploadLink = document.createElement('a');
         uploadLink.textContent = '[ get evaluated! ]';
         uploadLink.href = '/mechturk';
-        var p = document.createElement('p');
-        p.appendChild(downloadLink);
-        p.appendChild(uploadLink);
+        var links = document.createElement('div');
+        links.appendChild(downloadLink);
+        links.appendChild(uploadLink);
+        links.id='links';
 
-        $('#video-preview').appendChild(p);
+        $('#videoWrapper').appendChild(links);
 
       } else {
         window.URL.revokeObjectURL(video.src);

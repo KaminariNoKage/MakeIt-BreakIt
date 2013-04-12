@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  br
+  div(id='mturkWrapper')
+    form(id='makeGroupForm', class='form-horizontal well', style='width:50%; display:inline-block')
+      fieldset
+          p.help-block Get Evaluated!
+           .form-actions
+           .span4
+           .span4(style="width:100%;")
+              .control-group
+                label.control-label(for='textarea') Description of video
+                .controls
+                  textarea#textarea.input-xlarge(rows='3', name='videodescription')
+              br
+              .control-group
+                label.control-label(for='focusedInput') URL
+                .controls
+                  input#focusedInput.input-xlarge.focused(type='text', value='', name= 'vidUrl')
+              br
+              a.btn.btn-success.btn-large(type='button', id='submitter') Evaluate!
+
+    script(type='text/javascript')
+      tinypic_layout = 'narrow';
+      tinypic_type = 'both';
+      tinypic_links = 'url';
+      tinypic_language = 'en';
+      tinypic_search = 'false';
+      tinypic_autoload = true;
+    script(src='http://plugin.tinypic.com/j/plugin.js', type='text/javascript')
