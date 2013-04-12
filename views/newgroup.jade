@@ -1,0 +1,30 @@
+extends layout
+
+block content
+ form(id='makeGroupForm', class='form-horizontal well', action='/group/:groupname', method='POST')
+    fieldset
+        p.help-block Create a New Group
+         .form-actions
+         .span4
+         .span4
+            .control-group
+              label.control-label(for='focusedInput') Group Name
+              .controls
+                input#focusedInput.input-xlarge.focused(type='text', name = 'groupname') 
+            br 
+            .control-group
+              label.control-label(for='textarea') Description of your Group
+              .controls
+                textarea#textarea.input-xlarge(rows='3', name='groupdescription')
+            br
+            .control-group
+              label.control-label(for='focusedInput') Deadline
+              .controls
+                input#focusedInput.input-xlarge.focused(type='text', value='dd/mm/yyyy', name= 'groupdeadline')
+            br
+            .control-group
+              label.control-label(for='focusedInput') Minimum Bet
+              .controls
+                input#focusedInput.input-xlarge.focused(type='text', value='##.##', name = 'minimumbet')
+            br
+            a.btn.btn-success.btn-large(href='#', type='submit', id='submitter') Create!
