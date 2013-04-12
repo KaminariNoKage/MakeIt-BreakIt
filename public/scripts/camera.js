@@ -29,7 +29,7 @@ $(document).ready(function (){
 
     function toggleActivateRecordButton() {
       var b = $('#record-me');
-      b.textContent = b.disabled ? 'Record' : 'Recording...';
+      b.textContent = b.disabled ? 'Record' : '2. Recording...';
       b.classList.toggle('recording');
       b.disabled = !b.disabled;
     }
@@ -133,16 +133,17 @@ $(document).ready(function (){
         console.log("whatttttt"); 
         downloadLink = document.createElement('a');
         downloadLink.download = 'capture.webm';
-        downloadLink.textContent = '[ download video ]';
+        downloadLink.textContent = '[ 3. download video ]';
         downloadLink.title = 'Download your .webm video';
         uploadLink = document.createElement('a');
-        uploadLink.textContent = '[ get evaluated! ]';
+        uploadLink.textContent = '[ 4. get evaluated! ]';
         uploadLink.href = '/mechturk';
-        var p = document.createElement('p');
-        p.appendChild(downloadLink);
-        p.appendChild(uploadLink);
+        var links = document.createElement('div');
+        links.appendChild(downloadLink);
+        links.appendChild(uploadLink);
+        links.id='links';
 
-        $('#video-preview').appendChild(p);
+        $('#addTo').appendChild(links);
 
       } else {
         window.URL.revokeObjectURL(video.src);

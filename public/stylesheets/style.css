@@ -5,6 +5,8 @@ body {
 
 a {
   color: #00B7FF;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight:bold;
 }
 
 P { 
@@ -12,10 +14,28 @@ P {
 	font-size:180%
 }
 
+#addTo{
+    width:350px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:130%;
+}
+
 IMG.displayed {
     display: block;
     margin-left: auto;
     margin-right: auto 
+}
+
+iframe{
+    display:inline-block;
+    vertical-align: top;
+    padding-left: 30px;
+}
+
+#mturkWrapper{
+    width: 80%;
+    margin-left:auto;
 }
 
 h4 {
@@ -62,4 +82,9 @@ button.btn.btn-danger{
     display: inline-block;
     vertical-align: top;
     margin-top: 10px;
+
+button{
+    font-size:130%;
+    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+    font-weight:bold;
 }

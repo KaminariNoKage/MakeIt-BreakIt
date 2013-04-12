@@ -2,21 +2,26 @@ extends layout
 
 
 block content
-  h1= title
-  p Welcome to #{title}
-  div(style='float:left;')
-    button#camera-me 1. Turn on camera
-    h4
-      code getUserMedia()
-      | feed
-    video(autoplay='autoplay')
-  div(id='video-preview')
-    button(id='record-me', disabled='disabled')
-      | 2. Record
-    button(id='stop-me', diasbled='disabled') ◼
-    //
-      <button id="play-me" disabled>►</button>
-    span(id='elapsed-time')
-    h4
-      .webm recording (no audio)
+  script(src='/scripts/camera.js')
+  script(src='/scripts/whammy.min.js', type ='text/javascript')
+  br
+  br
+  .well(id='videoWrapper', style='width:750px; height:380px; margin-left:auto; margin-right:auto')
+    div(style='float:left;')
+      button#camera-me 1. Turn on camera
+      h4(style='visibility: hidden')
+        code getUserMedia()
+        | feed
+      video(autoplay='autoplay')
+    div(id='video-preview')
+      button(id='record-me', disabled='disabled')
+        | 2. Record
+      button(id='stop-me', diasbled='disabled') ◼
+      //
+        <button id="play-me" disabled>►</button>
+      span(id='elapsed-time')
+      h4(style='visibility: hidden')
+        .webm recording (no audio)
+    br
+    div(id='addTo')
 

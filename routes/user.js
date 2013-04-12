@@ -86,5 +86,9 @@ exports.join = function(req, res){
 };
 
 exports.record = function(req,res){
-	res.render('record', { title: 'Express' });
+	res.render('record', { title: 'Record your achievement' });
+}
+
+exports.mturk = function(req,res){
+	res.render('mechturk',{title: 'Mechanical Turk'});
 }
