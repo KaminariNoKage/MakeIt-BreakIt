@@ -21,7 +21,7 @@ IMG.displayed {
 h4 {
 	margin-left: auto;
     margin-right: auto;
-    width: 25em
+    width: 20em
 }
 
 a.btn.btn-warning.btn-large{
@@ -41,5 +41,12 @@ a.btn.btn-primary {
     left:70%;
     position:relative;
 	margin: 0 auto
+
+}
+
+button.btn.btn-danger{
+    text-align:right;
+    position:relative;
+    margin: 0 auto
 
 }

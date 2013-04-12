@@ -2,8 +2,25 @@ extends layout
 
 block content
 	script(src='/scripts/clickables.js')
-	h1 #{name}
-
-	div(value=habits)
-		each hab, i in habits
-			p hab
+	.span4
+		br
+		br
+		img(src='https://graph.facebook.com/shaverm/picture?type=large')
+		br
+		br
+		h1 #{name}
+	.span4
+	.span4
+		.well
+			h1 Goal: Lose 50 Pounds
+			.form-actions
+				h3 Bet: $200
+				h3 Deadline: 11/12/13
+				.progress
+					.bar(style='width: 60%;')
+			.form-actions
+				a.btn.btn-danger.btn-large(href='#') Record your Success!
+	.span12
+		.well
+			h1 Friends
+			h2 all yo friends hereeeeeeeee
