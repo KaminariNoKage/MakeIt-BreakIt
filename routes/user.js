@@ -44,6 +44,7 @@ exports.join = function(req, res){
 			, name = user.name
 			, groups = user.habits;
 		Group.search({_id: req.body.group_id}).exec(function (err, docs){
+			//{name, group_id, description, deadline, bet}
 			//Make sure member not in group already, or group part of member's list
 			//Add group to the member's list of joined groups.
 			//{group_list: group_id, bet: $$}

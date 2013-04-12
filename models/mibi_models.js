@@ -8,15 +8,15 @@ db.once('open', function callback () {});
 var memberSchema = mongoose.Schema({
 	name: String,
 	fb_id: String,
-	habits: Array	//NOTE: Format {group_id: ***, bet: ***}
+	habits: Array //NOTE: Format {name, group_id, description, deadline, bet}
 });
 
 var groupSchema = mongoose.Schema({
 	habit: String,
 	description: String,
 	deadline: String,
-	people: Array,	//NOTE: Format {member_id: ***, bet: ***}
-	monpool: Number,
+	people: Array,	//NOTE: Format {member_id: ***, member_name: **, bet: ***}
+	monpool: Number
 });
 
 var Member = mongoose.model('Member', memberSchema);

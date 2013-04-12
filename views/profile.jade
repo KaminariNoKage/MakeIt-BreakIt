@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	script(src='/scripts/clickables.js')
+	h1 #{name}
+
+	div(value=habits)
+		each hab, i in habits
+			p hab

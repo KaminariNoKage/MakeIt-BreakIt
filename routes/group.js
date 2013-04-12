@@ -9,13 +9,13 @@ var Models = require('../models/mibi_models.js')
 
 exports.allgroups = function(req, res){
 	Group.find().sort('deadline').exec(function (err, docs){
-		res.render('groups', {title: 'MakeIt-BreakIt', name: 'All Groups', group_list: docs});
+		res.render('groups', {title: 'MakeIt-BreakIt', user_id: req.session.user, name: 'All Groups', group_list: docs});
 	});
 };
 
 exports.searchgroups = function(req, res){
 	Group.find({habit: req.session.searchword}).sort('deadline').exec(function (err, docs){
-		res.render('groups', {title: 'MakeIt-BreakIt', name: req.session.searchword, group_list: docs});
+		res.render('groups', {title: 'MakeIt-BreakIt', user_id: req.session.user, name: req.session.searchword, group_list: docs});
 	});
 };
 
