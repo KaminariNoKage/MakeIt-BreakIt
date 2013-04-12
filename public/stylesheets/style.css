@@ -5,11 +5,20 @@ body {
 
 a {
   color: #00B7FF;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight:bold;
 }
 
 P { 
 	text-align: center; 
 	font-size:180%
+}
+
+#addTo{
+    width:350px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:130%;
 }
 
 IMG.displayed {
@@ -60,4 +69,10 @@ button.btn.btn-danger{
     position:relative;
     margin: 0 auto
 
+}
+
+button{
+    font-size:130%;
+    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+    font-weight:bold;
 }
