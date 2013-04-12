@@ -12,6 +12,14 @@ P {
 	font-size:180%
 }
 
+#links{
+    text-align:left;
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    margin: auto auto 10px;
+}
+
 IMG.displayed {
     display: block;
     margin-left: auto;

@@ -65,7 +65,7 @@ exports.join = function(req, res){
 };
 
 exports.record = function(req,res){
-	res.render('record', { title: 'Record this bitch' });
+	res.render('record', { title: 'Record your achievement' });
 }
 
 exports.mturk = function(req,res){
