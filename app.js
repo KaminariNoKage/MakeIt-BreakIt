@@ -60,6 +60,7 @@ app.get('/searchgroups', facebookGetUser(), group.searchgroups);
 app.post('/makegroup', group.make);
 app.post('/search', group.search);
 app.get('/record', user.record);
+app.get('/mechturk', user.mturk);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
