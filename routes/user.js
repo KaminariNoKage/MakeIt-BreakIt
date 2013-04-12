@@ -19,7 +19,8 @@ exports.myprofile = function(req, res){
 	Member.find({fb_id: req.session.user}).exec(function (err, docs){
 		var user = docs[0]
 			, name = user.name;
-		Bridge.find({mem_id: user._id}).exec(function (err, cons){
+		Bridge.find({mem_id: user.fb_id}).exec(function (err, cons){
+			console.log(cons);
 			res.render('profile', {title: 'MakeIt-BreakIt', name: name, habit_list: cons});
 		});
 	});
@@ -54,6 +55,9 @@ exports.join = function(req, res){
 
 			modnewhabit.save(function (err){
 				console.log('Bridge Made');
+
+				Group.find({_id: gps[0]._id}).update({monpool: newmon});
+
 				res.redirect('/profile');
 			});
 		});
