@@ -21,11 +21,11 @@ exports.searchgroups = function(req, res){
 };
 
  exports.getgroup = function(req, res){
-	Group.find({'habit':req.params.name}).sort('deadline').exec(function (err, docs) {
+	Group.find({_id:req.params.hab_id}).sort('deadline').exec(function (err, docs) {
 		if (err)
-		return console.log("error", docs);
-		// send it back
-		res.render('group_pg', {title: docs[0].name});
+			return console.log("error", docs);
+			// send it back
+		res.render('group_pg', {title: 'MakeIt-BreakIt', name: docs[0].habit, hab: docs[0]});
 	});
  };
 
@@ -43,7 +43,7 @@ exports.make = function(req, res){
 		, gpname = req.body.groupname
 		, gpdes = req.body.groupdescription
 		, gpdeln = req.body.groupdeadline
-		, gpbet = req.body.minimumbet;
+		, gpbet = parseInt(req.body.minimumbet);
 	
 	Member.find({fb_id: userid}).exec(function (err, docs){
 

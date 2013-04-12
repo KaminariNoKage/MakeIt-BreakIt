@@ -53,10 +53,10 @@ app.get('/newgroup', facebookGetUser(), user.newgroup);
 //app.get('/record', facebookGetUser(), user.record);
 //app.get('/submit', facebookGetUser(), user.submit);
 app.get('/allgroups', facebookGetUser(), group.allgroups);
-app.get('/allgroups/:habit', facebookGetUser(), group.getgroup);
+app.get('/allgroups/:hab_id', facebookGetUser(), group.getgroup);
 app.get('/searchgroups', facebookGetUser(), group.searchgroups);
 
-//app.post('/joingroup', user.join);
+app.post('/joingroup', user.join);
 app.post('/makegroup', group.make);
 app.post('/search', group.search);
 app.get('/record', user.record);

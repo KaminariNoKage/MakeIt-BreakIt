@@ -4,16 +4,15 @@ block content
 	script(src='/scripts/clickables.js')
 	h1 #{name}
 
-	div(name='Search Bar')
-		.span2 
-		a.btn.btn-primary(type='button', id='search_group', class='#{user_id}') Search 
-		.span2
-		input.input-medium.search-query(type='text', id='search_words')
-
-	div(value=group_list)
+	div(value=group_list, id='list_all')
 		each hab, i in group_list
-			div(class='#{hab._id}')
-				h2 #{hab.habit}
-				| #{hab.description}
-				h4 Deadline: #{hab.deadline}
-				h4 Money Pool: #{hab.monpool}
+			a(href='/allgroups/#{hab._id}')
+				.span12
+					.well
+						div(id="group_info")
+							h2 #{hab.habit}
+							| #{hab.description}
+						div(id="new_bet")
+							h4 Deadline: #{hab.deadline}
+							h4 Money Pool: $#{hab.monpool}
+				

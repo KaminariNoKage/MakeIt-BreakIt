@@ -50,3 +50,16 @@ button.btn.btn-danger{
     margin: 0 auto
 
 }
+
+#group_info{
+    width:50%;
+    min-width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#new_bet {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+}

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	script(src='/scripts/clickables.js')
+	
+	div(id="group_info")
+		h1 #{name}
+		br
+		br
+		p #{hab.description}
+
+
+	div(id='new_bet')
+		.span4
+			.well
+				h4 Deadline: #{hab.deadline}
+				h4 Money Pool: $#{hab.monpool}
+				.form-actions
+					label.control-label(for='focusedInput') Enter Bet Value
+					.controls
+						input#focusedInput.input-large.focused(type='text', value='', name = 'minimumbet', id="minbet")
+						a.btn.btn-warning.btn-large(type='button', id='join', name='#{hab._id}') Join this group!
