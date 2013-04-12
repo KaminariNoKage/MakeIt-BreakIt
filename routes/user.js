@@ -5,7 +5,8 @@
 
 var Models = require('../models/mibi_models.js')
 	, Member = Models[0]
-	, Group = Models[1];
+	, Group = Models[1]
+	, Bridge = Models[2];
 
 exports.home = function(req, res){
 	var userid = req.session.user;
@@ -17,13 +18,11 @@ exports.home = function(req, res){
 exports.myprofile = function(req, res){
 	Member.find({fb_id: req.session.user}).exec(function (err, docs){
 		var user = docs[0]
-			, name = user.name
-			, groups = user.habits;
-		if (groups.length == 0){
-			groups.push('You are not signed up for any groups. Try joining one or making your own!');
-		};
-		res.render('profile', {title: 'MakeIt-BreakIt', name: name, habit_list: groups});
-
+			, name = user.name;
+		Bridge.find({mem_id: user.fb_id}).exec(function (err, cons){
+			console.log(cons);
+			res.render('profile', {title: 'MakeIt-BreakIt', name: name, habit_list: cons});
+		});
 	});
 };
 
@@ -40,15 +39,27 @@ exports.newgroup = function(req, res){
 //Adds a member to a group
 exports.join = function(req, res){
 	Member.find({fb_id: req.session.user}).exec(function (err, docs){
-		var user = docs[0]
-			, name = user.name
-			, groups = user.habits;
-		Group.search({_id: req.body.group_id}).exec(function (err, docs){
-			//{name, group_id, description, deadline, bet}
-			//Make sure member not in group already, or group part of member's list
-			//Add group to the member's list of joined groups.
-			//{group_list: group_id, bet: $$}
-			//Add the member to the groups current list of 
+		Group.search({_id: req.body.group_id}).exec(function (err, gps){
+			var userid = docs[0]._id
+				, username = docs[0].name
+				, gpid = gps[0]._id
+				, hname = gps[0].habit
+				, des = gps[0].description
+				, deln = gps[0].deadline
+				, bet = req.body.newbet
+				, newmon = gps[0].monpool + bet;
+
+			var joingp = new Bridge({mem_id: userid, mem_name: username
+				, gp_id: gpid, habit: hname, description: des
+				, deadline: deln, my_bet: bet});
+
+			modnewhabit.save(function (err){
+				console.log('Bridge Made');
+
+				Group.find({_id: gps[0]._id}).update({monpool: newmon});
+
+				res.redirect('/profile');
+			});
 		});
 	});
 };

@@ -1,7 +1,8 @@
 extends layout
 
 block content
- form(id='makeGroupForm', class='form-horizontal well', action='/group/:groupname', method='POST')
+ script(src='/scripts/clickables.js')
+ form(id='makeGroupForm', class='form-horizontal well')
     fieldset
         p.help-block Create a New Group
          .form-actions
@@ -27,4 +28,4 @@ block content
               .controls
                 input#focusedInput.input-xlarge.focused(type='text', value='##.##', name = 'minimumbet')
             br
-            a.btn.btn-success.btn-large(href='#', type='submit', id='submitter') Create!
+            a.btn.btn-success.btn-large(type='button', id='submitter') Create!
