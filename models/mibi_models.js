@@ -7,18 +7,27 @@ db.once('open', function callback () {});
 
 var memberSchema = mongoose.Schema({
 	name: String,
-	fb_id: String,
-	habits: Array //NOTE: Format {name, group_id, description, deadline, bet}
+	fb_id: String
 });
+
+var bridgeSchema = mongoose.Schema({
+	mem_id: String,
+	mem_name: String,
+	gp_id: String,
+	habit: String,
+	description: String,
+	deadline: String,
+	my_bet: Number
+})
 
 var groupSchema = mongoose.Schema({
 	habit: String,
 	description: String,
 	deadline: String,
-	people: Array,	//NOTE: Format {member_id: ***, member_name: **, bet: ***}
 	monpool: Number
 });
 
 var Member = mongoose.model('Member', memberSchema);
 var Group = mongoose.model('Group', groupSchema);
-module.exports = [Member, Group];
+var Bridge = mongoose.model('Bridge', bridgeSchema);
+module.exports = [Member, Group, Bridge];

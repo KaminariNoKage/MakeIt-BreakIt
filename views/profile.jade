@@ -4,6 +4,7 @@ block content
 	script(src='/scripts/clickables.js')
 	h1 #{name}
 
-	div(value=habits)
-		each hab, i in habits
-			p hab
+	div(value=habit_list)
+		each hab, i in habit_list
+			div(class='#{hab._id}')
+				h2 #{hab}

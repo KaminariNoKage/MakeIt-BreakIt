@@ -13,7 +13,7 @@ exports.index = function(req, res){
 
 		Member.find({fb_id: id}).exec(function (err, docs){
 			var curr = docs[0]; //Current Member logged in
-
+			console.log(docs);
 			if (curr == null){
 				var newb = new Member({name: data.name, fb_id: id, habits: []});
 				console.log('New user made');

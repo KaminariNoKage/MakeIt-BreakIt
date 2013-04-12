@@ -5,5 +5,14 @@ $(document).ready(function(){
 		$.post('/search', {searchword: hname}, function(){
 			location = '/searchgroups';
 		});
+		return false;
+	});
+
+	$('#submitter').click(function(){
+		var newgroup = $('#makeGroupForm').serialize();
+		console.log(newgroup);
+		$.post('/makegroup', newgroup, function(){
+			location = '/home';
+		});
 	});
 });

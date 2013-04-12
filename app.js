@@ -57,7 +57,7 @@ app.get('/allgroups/:habit', facebookGetUser(), group.getgroup);
 app.get('/searchgroups', facebookGetUser(), group.searchgroups);
 
 //app.post('/joingroup', user.join);
-//app.post('/makegroup', group.make);
+app.post('/makegroup', group.make);
 app.post('/search', group.search);
 
 http.createServer(app).listen(app.get('port'), function(){
