@@ -36,10 +36,13 @@ exports.myprofile = function(req, res){
 					friendlist.push('You have no friends. Maybe you should work on that?');
 				};
 
-
 				console.log(friendlist);
 				Bridge.find({mem_id: user.fb_id}).exec(function (err, cons){
-					res.render('profile', {title: 'MakeIt-BreakIt', name: name, img: image, habit: cons[0], friend_list: friendlist});
+					var habit = cons[0]
+					if (habit.length == 0){
+						habit = {habit: "None Yet", deadline: "None"};
+					};
+					res.render('profile', {title: 'MakeIt-BreakIt', name: name, img: image, habit: habit, friend_list: friendlist});
 				});
 			});
 		});
