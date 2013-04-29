@@ -1,3 +1,6 @@
+// This is the edited version of code from:
+// https://github.com/ebidel/html5demos/blob/master/html5-demos.appspot.com/static/getusermedia/record-user-webm.html
+
 $(document).ready(function (){  
   (function(exports) {
 
